@@ -1,5 +1,11 @@
 import React from 'react';
 
 export const App = () => {
-  return <div>App</div>;
+  return (
+    <div className="ap">
+      <div className="navbar"></div>
+      <div className="main"></div>
+      <div className="footer"></div>
+    </div>
+  );
 };
