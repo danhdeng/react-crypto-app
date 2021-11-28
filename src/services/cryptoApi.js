@@ -29,7 +29,7 @@ const cryptoApiHeader = {
 
 // const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
-const createRequest = (url) => ({ url, headers:cryptoApiHeader });
+const createRequest = (url) => ({ url, headers: cryptoApiHeader });
 
 export const cryptoApi = createApi({
   reducerPath: 'cryptoApi',
@@ -38,7 +38,22 @@ export const cryptoApi = createApi({
     getCryptos: builder.query({
       query: () => createRequest('/coins'),
     }),
+    getExchanges: builder.query({
+      query: () => createRequest('/exchanges'),
+    }),
+    getCryptoDetails: builder.query({
+      query: (coinId) => createRequest(`/coin/${coinId}`),
+    }),
+    getCryptoHistory: builder.query({
+      query: (coinId, timePeriod) =>
+        createRequest(`/coin/${coinId}/history/${timePeriod}`),
+    }),
   }),
 });
 
-export const { useGetCryptosQuery } = cryptoApi;
+export const {
+  useGetCryptosQuery,
+  useGetExchangesQuery,
+  useGetCryptoDetailsQuery,
+  useGetCryptoHistoryQuery,
+} = cryptoApi;
