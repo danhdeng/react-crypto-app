@@ -40,7 +40,7 @@ export const App = () => {
             level={5}
             style={{ color: 'white', textAlign: 'center' }}
           >
-            Crypto Universe <br />
+            Crypto Central <br />
             All rights reserved.
           </Typography.Title>
           <Space>
