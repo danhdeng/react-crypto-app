@@ -35,15 +35,17 @@ export const Cryptocurrencies = ({ simplified }) => {
       <Row gutter={[32, 32]} className="crypto-card-container">
         {cryptos?.map((item) => (
           <Col xs={24} sm={12} lg={6} className="crypto-card" key={item.id}>
-            <Card
-              title={`${item.rank}. ${item.name}`}
-              extra={<img className="crypto-image" src={item.iconUrl} />}
-              hoverable
-            >
-              <p>Price: {millify(item.price)}</p>
-              <p>Market Cap: {millify(item.marketCap)}</p>
-              <p>Dail Change: {millify(item.change)}</p>
-            </Card>
+            <Link to={`/crypto/${item.id}`} key={item.id}>
+              <Card
+                title={`${item.rank}. ${item.name}  ${item.id}`}
+                extra={<img className="crypto-image" src={item.iconUrl} />}
+                hoverable
+              >
+                <p>Price: {millify(item.price)}</p>
+                <p>Market Cap: {millify(item.marketCap)}</p>
+                <p>Dail Change: {millify(item.change)}</p>
+              </Card>
+            </Link>
           </Col>
         ))}
       </Row>
