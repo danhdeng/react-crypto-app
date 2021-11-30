@@ -31,14 +31,23 @@ export const Exchanges = () => {
                 key={exchange.id}
                 showArrow={false}
                 header={
-                  (<Row>
-                    <Col span={6} offset={6}>
-                      col-6 col-offset-6
+                  <Row key={exchange.id} className="header-row">
+                    <Col type="flex" span={6}>
+                      <Text>
+                        <strong>{exchange.rank}.</strong>
+                      </Text>
+                      <Avatar
+                        style={{ margin: '0 10px' }}
+                        src={exchange.iconUrl}
+                      />
+                      <Text>
+                        <strong>{exchange.name}</strong>
+                      </Text>
                     </Col>
-                    <Col span={6} offset={6}>
-                      col-6 col-offset-6
-                    </Col>
-                  </Row>)
+                    <Col span={6}>${millify(exchange.volume)}</Col>
+                    <Col span={6}>{millify(exchange.numberOfMarkets)}</Col>
+                    <Col span={6}>{millify(exchange.marketShare)}%</Col>
+                  </Row>
                 }
               >
                 {HTMLReactParser(exchange.description || '')}

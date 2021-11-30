@@ -376,7 +376,8 @@ a:hover {
   align-items: center;
 }
 
-.ant-collapse-header {
+.header-row {
   display: flex;
   justify-content: space-between;
+  width: 100% !important;
 }
